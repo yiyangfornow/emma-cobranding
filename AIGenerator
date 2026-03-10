@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma Co-branding Tactics & Media Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F7F3;
+            --text-color: #4A4A4A;
+            --accent-color: #A8B5A0;
+            --accent-light: #dbe4d5;
+            --highlight-color: #C9BBAA;
+            --border-color: #E0DED8;
+            --table-header-bg: #F0EFEB;
+            --font-serif: 'Noto Serif TC', serif;
+            --font-sans: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; position: relative; }
+
+        h1, h2 { font-family: var(--font-serif); color: var(--text-color); text-align: center; }
+        h1 { font-size: 2.5rem; margin-bottom: 40px; }
+        h2 { font-size: 2rem; margin-bottom: 25px; position: relative; padding-bottom: 15px; }
+        h2::after {
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%); width: 60px; height: 2px; background-color: var(--accent-color);
+        }
+
+        .chart-container {
+            background: #fff; padding: 40px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); margin-bottom: 50px;
+            border: 1px solid var(--border-color); overflow-x: auto;
+        }
+
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+        th, td { padding: 15px 20px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--border-color); }
+        th { background-color: var(--table-header-bg); font-family: var(--font-serif); font-weight: 700; color: var(--text-color); border-bottom: 2px solid var(--accent-color); }
+
+        .en { display: block; font-weight: 500; margin-bottom: 2px; color: var(--text-color); }
+        .tc { display: block; font-size: 0.9rem; color: #666; }
+        .inline-tc { font-size: 0.9rem; color: #666; margin-left: 5px; }
+
+        .tactics-checkbox { width: 20px; height: 20px; accent-color: var(--accent-color); cursor: pointer; }
+
+        .calc-table th { white-space: nowrap; }
+        .calc-table .group-row td { background-color: #f9f9f9; font-weight: bold; border-bottom: 2px solid #ddd; }
+        .calc-table .total-row td { background-color: var(--accent-light); font-weight: bold; font-family: var(--font-serif); }
+        .calc-table .grand-total-row td { background-color: var(--accent-color); color: white; font-weight: bold; font-family: var(--font-serif); font-size: 1.1rem; }
+        .calc-input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; text-align: right; font-family: var(--font-sans); font-size: 1rem; transition: all 0.3s; }
+        .calc-input:focus { outline: none; border-color: var(--accent-color); }
+        .calc-total-val { text-align: right; padding-right: 10px; display: block; }
+        .highlight-win { background-color: #e8f5e9; border-color: #4caf50; font-weight: bold; color: #2e7d32; }
+
+        .ai-generator-container {
+            background: linear-gradient(135deg, #F8F7F3 0%, #EFEBE4 100%);
+            padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(168, 181, 160, 0.15);
+            margin-bottom: 50px; border: 1px solid var(--accent-color);
+        }
+        .ai-generator-container h2 { color: var(--accent-color); margin-bottom: 15px; }
+        .ai-generator-container h2::after { background-color: var(--highlight-color); }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-family: var(--font-serif); font-weight: 700; margin-bottom: 8px; color: var(--text-color); }
+        .form-group input[type="text"], .form-group select { padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 6px; font-family: var(--font-sans); font-size: 1rem; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-color); }
+
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; background: #fff; padding: 15px; border: 1px solid var(--border-color); border-radius: 6px; }
+        .checkbox-label { display: flex; align-items: center; font-weight: 400 !important; font-size: 0.95rem; cursor: pointer; }
+        .checkbox-label input[type="checkbox"] { margin-right: 8px; accent-color: var(--accent-color); width: 16px; height: 16px; flex-shrink: 0; }
+        .custom-media-input { flex-grow: 1; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; margin-left: 5px; font-family: var(--font-sans); }
+
+        .generate-btn, .export-btn {
+            background-color: var(--accent-color); color: #fff; border: none; padding: 15px 30px;
+            font-size: 1.1rem; border-radius: 6px; cursor: pointer; font-family: var(--font-serif);
+            font-weight: 700; width: 100%; margin-top: 20px; transition: 0.2s;
+        }
+        .generate-btn:hover { background-color: #8c9a84; }
+        .generate-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+        
+        .export-btn { background-color: var(--text-color); margin-top: 0; width: auto; position: absolute; top: 0; right: 0; padding: 10px 20px; font-size: 0.9rem;}
+        .export-btn:hover { background-color: #333; }
+
+        .result-box {
+            margin-top: 30px; padding: 30px; background-color: #fff; border-radius: 8px;
+            border: 1px dashed var(--accent-color); display: none; line-height: 1.8;
+        }
+        .result-box h3 { font-family: var(--font-serif); color: var(--accent-color); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .result-box h4 { font-family: var(--font-serif); margin-top: 25px; margin-bottom: 10px; }
+        .helper-text { font-size: 0.85rem; color: #888; margin-top: 4px; font-weight: normal; }
+
+        /* Print Optimization */
+        @media print {
+            body { background-color: #fff; padding: 0; }
+            .no-print { display: none !important; }
+            .chart-container, .ai-generator-container { box-shadow: none; border: 1px solid #ddd; margin-bottom: 30px; break-inside: avoid; }
+            .calc-input { border: none; border-bottom: 1px solid #ccc; border-radius: 0; padding: 4px 0; }
+            h1 { font-size: 2rem; margin-bottom: 20px; }
+        }
+
+        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } .export-btn { position: relative; width: 100%; margin-bottom: 20px;} }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button onclick="window.print()" class="export-btn no-print">📄 匯出 PDF / 列印</button>
+    
+    <h1>Emma Co-branding Strategy & Resources<br><span class="tc" style="font-size: 1.2rem;">Emma 聯名策略與資源</span></h1>
+
+    <!-- Chart 1: Co-branding Tactics -->
+    <div class="chart-container">
+        <h2>Co-branding Tactics<br><span class="tc">聯名策略方式</span></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;"><span class="en">Tactics</span><span class="tc">策略</span></th>
+                    <th style="width: 50%;"><span class="en">Action / Method</span><span class="tc">方式</span></th>
+                    <th style="width: 15%; text-align: center;"><span class="en">Emma</span></th>
+                    <th style="width: 15%; text-align: center;"><span class="en">合作品牌</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="vertical-align: top;">
+                        <span class="en">Traffic Exchange</span>
+                        <span class="tc">流量交換</span>
+                    </td>
+                    <td><span class="en">Provide media resources to promote event/content.</span><br><span class="tc">提供媒體資源推廣聯名活動/內容。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td><span class="en">Offer coupons/product discounts as CTA.</span><br><span class="tc">提供優惠券/產品折扣作為行動呼籲。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="vertical-align: top;">
+                        <span class="en">Co-branded Product</span>
+                        <span class="tc">聯名產品</span>
+                    </td>
+                    <td><span class="en">List co-branded products on website/retail for sale.</span><br><span class="tc">在網站/零售店上架聯名產品進行銷售。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td><span class="en">Provide brand licensing and handle manufacturing.</span><br><span class="tc">提供品牌授權並處理產品製造。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="vertical-align: top;">
+                        <span class="en">Product Placement</span>
+                        <span class="tc">產品置入</span>
+                    </td>
+                    <td><span class="en">Offer products for trial/use in physical spaces.</span><br><span class="tc">在實體空間提供產品進行試用/試睡。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td><span class="en">Provide space and on-site advertising displays.</span><br><span class="tc">提供空間和現場廣告展示。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;">
+                        <span class="en">Giveaway</span>
+                        <span class="tc">贈品活動</span>
+                    </td>
+                    <td><span class="en">Offer products/accessories for giveaways.</span><br><span class="tc">提供產品作為活動贈品。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;">
+                        <span class="en">Exclusive Discount</span>
+                        <span class="tc">獨家折扣</span>
+                    </td>
+                    <td><span class="en">Offer partner-exclusive discount rates (below min retail).</span><br><span class="tc">提供低於最低零售價之獨家折扣率。</span></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox" class="tactics-checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chart 2: Detail Value Calculation -->
+    <div class="chart-container">
+        <h2>Detail Value Calculation<br><span class="tc">詳細價值預估與資源分配</span></h2>
+        <table class="calc-table" id="valueCalcTable">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Category</th>
+                    <th style="width: 35%;">Media Type / Item</th>
+                    <th style="width: 25%; text-align: right;">Emma Value (NTD$)</th>
+                    <th style="width: 25%; text-align: right;">Collaborator (NTD$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="val-row" data-category="media">
+                    <td rowspan="10" style="vertical-align: top; font-weight: bold;">Media<br><span class="tc" style="font-weight: normal;">媒體曝光</span></td>
+                    <td>Social Media<br><span class="tc">社群媒體曝光</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>Website Impression<br><span class="tc">網站曝光 (千次曝光 CPM)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>Influencer ($Cost)<br><span class="tc">網紅合作 </span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>CRM (Email or SMS sent)<br><span class="tc">會員行銷 (信件 / 簡訊)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>OOH<br><span class="tc">戶外廣告</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>TV<br><span class="tc">電視廣告 (TVC)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>Paid Media (Display)<br><span class="tc">展示型廣告 (Display Ads)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>Product Placement (footfall)<br><span class="tc">實體通路展示 (人流導外)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>Product Trial Sleep (Hotel/Space)<br><span class="tc">跨界體驗 (如：飯店/實體空間)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="media">
+                    <td>Earned PR<br><span class="tc">公關媒體曝光 (Earned PR)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2" style="text-align: right;">Media Total Value:</td>
+                    <td><span class="calc-total-val" id="mediaTotalEmma">0</span></td>
+                    <td><span class="calc-total-val" id="mediaTotalCollab">0</span></td>
+                </tr>
+
+                <tr class="val-row" data-category="product">
+                    <td rowspan="2" style="vertical-align: top; font-weight: bold;">Product Level<br><span class="tc" style="font-weight: normal;">產品價值</span></td>
+                    <td>Total Special Discount Value<br><span class="tc">總獨家折扣價值 (僅適用於低於最低零售價時)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="val-row" data-category="product">
+                    <td>Giveaway Value (at retail price)<br><span class="tc">贈品價值 (以零售價計算)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2" style="text-align: right;">Product Total Value:</td>
+                    <td><span class="calc-total-val" id="productTotalEmma">0</span></td>
+                    <td><span class="calc-total-val" id="productTotalCollab">0</span></td>
+                </tr>
+
+                <tr class="val-row" data-category="sales">
+                    <td style="font-weight: bold;">Sales Impact<br><span class="tc" style="font-weight: normal;">業績影響</span></td>
+                    <td>Attributed Sales Revenue (Non-Incremental)<br><span class="tc">歸因銷售收入 (非增量)</span></td>
+                    <td><input type="number" class="calc-input emma-val" placeholder="0"></td>
+                    <td><input type="number" class="calc-input collab-val" placeholder="0"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2" style="text-align: right;">Sales Total Value:</td>
+                    <td><span class="calc-total-val" id="salesTotalEmma">0</span></td>
+                    <td><span class="calc-total-val" id="salesTotalCollab">0</span></td>
+                </tr>
+
+                <tr class="grand-total-row">
+                    <td colspan="2" style="text-align: right;">Grand Total Value:</td>
+                    <td><span class="calc-total-val" id="grandTotalEmma">0</span></td>
+                    <td><span class="calc-total-val" id="grandTotalCollab">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- AI Generator Section -->
+    <div class="ai-generator-container">
+        <h2>✨ AI Campaign Idea Generator Pro<br><span class="tc" style="font-size: 1.2rem;">進階聯名企劃生成器</span></h2>
+
+        <div class="form-grid">
+            <div class="form-group full-width">
+                <label for="partnerInput">Partner Brand (合作品牌名稱)</label>
+                <input type="text" id="partnerInput" placeholder="例如：Samsung, Aesop, 10/10 HOPE...">
+            </div>
+            <div class="form-group">
+                <label for="positioningSelect">Product Positioning (產品定位)
+                    <div class="helper-text">決定敘事框架與主力推廣品項</div>
+                </label>
+                <select id="positioningSelect">
+                    <option value="Premium">高端線 (Premium) - Diamond / Zero Gravity 系列</option>
+                    <option value="Entry-level">大眾入門 (Entry-level) - 基礎線 - Hybrid / Futon 等</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="timingInput">Expected Timing (預計上線檔期)
+                    <div class="helper-text">例如：5月(母親節)、Q3、雙11等，AI將融入節慶行銷點子</div>
+                </label>
+                <input type="text" id="timingInput" placeholder="例如：2026/05, Q3, 雙11檔期...">
+            </div>
+            <div class="form-group">
+                <label for="tierSelect">Partner Tier (夥伴階層)
+                    <div class="helper-text">根據合作品牌的「市場領導地位」和「社群追蹤規模」確定</div>
+                </label>
+                <select id="tierSelect">
+                    <option value="Auto">由 AI 智能判定 (Auto-detect by AI)</option>
+                    <option value="Top-tier">Top-tier (行業領導者 / 120% 投資比)</option>
+                    <option value="Equal-tier">Equal-tier (價值對等 / 100% 投資比)</option>
+                    <option value="Lower-tier">Lower-tier (新銳或區域型 / 70% 投資比)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="natureSelect">Project Nature (專案性質)</label>
+                <select id="natureSelect">
+                    <option value="Always-on">長效常駐 (Always-on) - 適合 GWP/品牌聯乘</option>
+                    <option value="Tactical">短期活動 (Tactical) - 適合大促/新品曝光</option>
+                </select>
+            </div>
+            <div class="form-group full-width">
+                <label for="tacticSelect">Core Tactic (核心方式)</label>
+                <select id="tacticSelect" onchange="toggleCustomTactic()">
+                    <option value="Traffic Exchange">Traffic Exchange (流量交換)</option>
+                    <option value="Co-branded Product">Co-branded Product (聯名產品)</option>
+                    <option value="Product Placement">Product Placement (產品置入)</option>
+                    <option value="Giveaway">Giveaway (贈品活動)</option>
+                    <option value="Exclusive Discount">Exclusive Discount (獨家折扣)</option>
+                    <option value="Custom">Custom (自行填寫)</option>
+                </select>
+                <input type="text" id="customTacticInput" style="display:none; margin-top:10px;" placeholder="請輸入自訂合作形式名稱...">
+            </div>
+            <div class="form-group full-width">
+                <label>Media Allocation (預計動用媒體)</label>
+                <div class="checkbox-grid" id="mediaCheckboxes">
+                    <label class="checkbox-label"><input type="checkbox" value="Paid Social (Meta)" checked> Paid Social (Meta) <span class="inline-tc">效果廣告 (Meta)</span></label>
+                    <label class="checkbox-label"><input type="checkbox" value="Paid Social (Google)"> Paid Social (Google) <span class="inline-tc">效果廣告 (Google)</span></label>
+                    <label class="checkbox-label"><input type="checkbox" value="Offline Store Display"> Offline Store Display <span class="inline-tc">實體門市展示</span></label>
+                    <label class="checkbox-label"><input type="checkbox" value="Influencer"> Influencer <span class="inline-tc">網紅合作</span></label>
+                    <label class="checkbox-label"><input type="checkbox" value="CRM (Email/SMS)"> CRM (Email/SMS)</label>
+                    <label class="checkbox-label"><input type="checkbox" value="Earned PR"> Earned PR <span class="inline-tc">公關報導</span></label>
+                    <label class="checkbox-label" style="grid-column: 1 / -1;">
+                        <input type="checkbox" id="customMediaCheck" value="Custom">
+                        <input type="text" id="customMediaInput" class="custom-media-input" placeholder="Custom Media (自行填寫其他媒體)..." oninput="document.getElementById('customMediaCheck').checked = true">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <button id="generateBtn" class="generate-btn no-print" onclick="generateIdea()">✨ 生成專業企劃 (Generate Professional Pitch)</button>
+
+        <div id="resultBox" class="result-box">
+            <div id="resultContent"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateValues() {
+        const categories = ['media', 'product', 'sales'];
+        let grandTotalEmma = 0; let grandTotalCollab = 0;
+
+        categories.forEach(cat => {
+            let catEmma = 0; let catCollab = 0;
+            document.querySelectorAll(`.val-row[data-category="${cat}"]`).forEach(row => {
+                const emmaInput = row.querySelector('.emma-val');
+                const collabInput = row.querySelector('.collab-val');
+                const emmaVal = parseFloat(emmaInput.value) || 0;
+                const collabVal = parseFloat(collabInput.value) || 0;
+
+                catEmma += emmaVal; catCollab += collabVal;
+
+                emmaInput.classList.remove('highlight-win');
+                collabInput.classList.remove('highlight-win');
+                if (emmaVal > collabVal) emmaInput.classList.add('highlight-win');
+                else if (collabVal > emmaVal) collabInput.classList.add('highlight-win');
+            });
+
+            document.getElementById(`${cat}TotalEmma`).innerText = catEmma.toLocaleString();
+            document.getElementById(`${cat}TotalCollab`).innerText = catCollab.toLocaleString();
+            grandTotalEmma += catEmma; grandTotalCollab += catCollab;
+        });
+
+        document.getElementById('grandTotalEmma').innerText = grandTotalEmma.toLocaleString();
+        document.getElementById('grandTotalCollab').innerText = grandTotalCollab.toLocaleString();
+    }
+
+    document.querySelectorAll('.calc-input').forEach(input => { input.addEventListener('input', calculateValues); });
+
+    function toggleCustomTactic() {
+        const select = document.getElementById('tacticSelect');
+        const customInput = document.getElementById('customTacticInput');
+        customInput.style.display = select.value === 'Custom' ? 'block' : 'none';
+    }
+
+    const apiKey = "";
+    async function fetchWithRetry(url, options, maxRetries = 5) {
+        let retries = 0; const baseDelay = 1000;
+        while (retries < maxRetries) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                retries++;
+                if (retries >= maxRetries) throw new Error(`嘗試失敗: ${error.message}`);
+                await new Promise(resolve => setTimeout(resolve, baseDelay * Math.pow(2, retries - 1)));
+            }
+        }
+    }
+
+    async function generateIdea() {
+        const partner = document.getElementById('partnerInput').value.trim();
+        const positioning = document.getElementById('positioningSelect').value;
+        const timing = document.getElementById('timingInput').value.trim() || '未指定';
+        const tier = document.getElementById('tierSelect').value;
+        const nature = document.getElementById('natureSelect').value;
+        
+        let tactic = document.getElementById('tacticSelect').value;
+        if (tactic === 'Custom') tactic = document.getElementById('customTacticInput').value || '未指定自訂戰術';
+        
+        const mediaList = [];
+        document.querySelectorAll('#mediaCheckboxes input[type="checkbox"]:checked').forEach(cb => {
+            if (cb.value === 'Custom') {
+                const customVal = document.getElementById('customMediaInput').value;
+                if(customVal) mediaList.push(customVal);
+            } else { mediaList.push(cb.value); }
+        });
+
+        const btn = document.getElementById('generateBtn');
+        const resultBox = document.getElementById('resultBox');
+        const resultContent = document.getElementById('resultContent');
+
+        if (!partner) {
+            resultBox.style.display = 'block'; resultContent.innerHTML = '<span style="color: #e74c3c;">請輸入合作品牌名稱!</span>'; return;
+        }
+        if (mediaList.length === 0) {
+            resultBox.style.display = 'block'; resultContent.innerHTML = '<span style="color: #e74c3c;">請至少選擇一項宣傳媒體!</span>'; return;
+        }
+
+        btn.disabled = true; btn.innerHTML = '✨ 運算中... (Processing...)';
+        resultBox.style.display = 'block'; resultContent.innerHTML = `正在為 <strong>${partner}</strong> 計算企劃，請稍候...`;
+
+        const prompt = `身為 Emma 睡眠科技合作經理，為 Emma 與「${partner}」設計聯名企劃。
+參數：定位 ${positioning} / 檔期 ${timing} / 階層 ${tier} / 性質 ${nature} / 戰術 ${tactic} / 媒體 ${mediaList.join(', ')}。
+規範：若 Premium，強調 "German Engineering + Partner's Luxury Asset"。若有指定檔期，需融入節慶賣點。若 Always-on 且 Premium 必須設計「GWP 滿額禮贈」。評估 $50K USD 價值門檻及合理 ROAS。
+直接輸出 HTML 結構，勿包 markdown 標記。格式包含：<h3>標題</h3>、<h4>概念與敘事</h4>、<h4>投資策略</h4>、<h4>具體戰術</h4>、<h4>資源配置建議 (table)</h4>`;
+
+        try {
+            const data = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7 } })
+            });
+            let text = data.candidates?.[0]?.content?.parts?.[0]?.text || "生成失敗。";
+            resultContent.innerHTML = text.replace(/\u0060\u0060\u0060html\n/gi, '').replace(/\u0060\u0060\u0060/g, '');
+        } catch (error) { resultContent.innerHTML = `<span style="color: #e74c3c;">錯誤: ${error.message}</span>`; }
+        finally { btn.disabled = false; btn.innerHTML = '✨ 再次生成專業企劃'; }
+    }
+</script>
+</body>
+</html>
