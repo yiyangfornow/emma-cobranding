@@ -478,7 +478,7 @@
 直接輸出 HTML 結構，勿包 markdown 標記。格式包含：<h3>標題</h3>、<h4>概念與敘事</h4>、<h4>投資策略</h4>、<h4>具體戰術</h4>、<h4>資源配置建議 (table)</h4>`;
 
         try {
-            const data = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+            const data = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7 } })
             });
